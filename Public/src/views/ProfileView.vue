@@ -1,11 +1,7 @@
 <template>
   <header>
     <div>
-      <ProfileCard
-        fullName="Kevin Holmes"
-        username="kevin-et-holmes"
-        email="kevinholmes921@gmail.com"
-      />
+      <ProfileCard :fullName="user.fullName" :username="user.username" :email="user.email" />
     </div>
   </header>
 </template>
@@ -14,21 +10,37 @@
 import ProfileCard from '@/components/ProfileCard.vue'
 import axios from 'axios'
 
-const urlUsername = window.location.href.split('/')[3]
+const url = 'http://localhost:3000/profile'
 
 export default {
+  async beforeMount() {
+    this.getUser()
+  },
+
   name: 'ProfileView',
   components: {
     ProfileCard
   },
 
+  data() {
+    return {
+      user: {
+        fullName: '',
+        username: '',
+        email: ''
+      }
+    }
+  },
+
   methods: {
     getUser() {
+      const urlUsername = this.$route.path
       axios
-        .get(`/profile/${urlUsername}`)
+        .get(`${url}${urlUsername}`)
         .then((response) => {
-          console.log(response.data)
-          // this.user = response.data
+          // console.log(response.data)
+          this.user = response.data
+          console.log(this.user)
         })
         .catch((error) => {
           console.error(error)

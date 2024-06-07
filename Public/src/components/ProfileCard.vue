@@ -1,14 +1,3 @@
-<template>
-  <div class="profile">
-    <!-- <img :src="profileImage" alt="Profile Picture" class="profile-image" /> -->
-    <h2>{{ fullName }}</h2>
-    <p>{{ username }}</p>
-    <ul>
-      <li><strong>Email:</strong> {{ email }}</li>
-    </ul>
-  </div>
-</template>
-
 <script>
 export default {
   name: 'ProfileCard',
@@ -28,3 +17,14 @@ export default {
   }
 }
 </script>
+
+<template>
+  <div class="profile">
+    <!-- <img :src="profileImage" alt="Profile Picture" class="profile-image" /> -->
+    <h2>{{ fullName }}</h2>
+    <p>{{ username }}</p>
+    <ul>
+      <li><strong>Email:</strong> {{ email }}</li>
+    </ul>
+  </div>
+</template>
