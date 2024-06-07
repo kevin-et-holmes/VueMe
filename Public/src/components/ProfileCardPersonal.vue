@@ -2,9 +2,12 @@
   <div class="profile">
     <!-- <img :src="profileImage" alt="Profile Picture" class="profile-image" /> -->
     <h2>{{ fullName }}</h2>
-    <p>{{ username }}</p>
+    <p>{{ bio }}</p>
     <ul>
       <li><strong>Email:</strong> {{ email }}</li>
+      <li>
+        <strong>Website:</strong> <a :href="website" target="_blank">{{ website }}</a>
+      </li>
     </ul>
   </div>
 </template>
@@ -17,11 +20,23 @@ export default {
       type: String,
       required: true
     },
-    username: {
+    bio: {
+      type: String,
+      default: 'Software Developer'
+    },
+    email: {
       type: String,
       required: true
     },
-    email: {
+    location: {
+      type: String,
+      required: true
+    },
+    website: {
+      type: String,
+      required: true
+    },
+    profileImage: {
       type: String,
       required: true
     }

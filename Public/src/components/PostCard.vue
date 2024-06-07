@@ -1,19 +1,3 @@
-<template>
-  <div class="postBody">
-    <div class="indvPost">
-      <div class="postHeader">
-        <a :href="username" class="username">
-          {{ username }}
-        </a>
-        <p class="date">{{ date }}</p>
-      </div>
-      <div class="content">
-        {{ content }}
-      </div>
-    </div>
-  </div>
-</template>
-
 <script>
 export default {
   name: 'PostCard',
@@ -37,6 +21,22 @@ export default {
   }
 }
 </script>
+
+<template>
+  <div class="postBody">
+    <div class="indvPost">
+      <div class="postHeader">
+        <RouterLink :to="username" class="username">
+          {{ username }}
+        </RouterLink>
+        <p class="date">{{ date }}</p>
+      </div>
+      <div class="content">
+        {{ content }}
+      </div>
+    </div>
+  </div>
+</template>
 
 <style scoped>
 .homeBody .postBody {
@@ -72,6 +72,7 @@ export default {
   color: rgba(255, 255, 255, 0.7);
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-weight: 800;
+  padding: 0;
 }
 
 .homeBody .indvPost .content {

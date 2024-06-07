@@ -56,11 +56,10 @@ export default {
       }
     },
     getPosts() {
-      console.log('getPosts')
       axios
         .get(`${url}/posts`)
         .then((response) => {
-          console.log(response.data)
+          // console.log(response.data)
           this.posts = response.data
         })
         .catch((error) => {
