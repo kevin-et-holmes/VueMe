@@ -1,12 +1,14 @@
 <template>
   <div class="postBody">
     <div class="indvPost">
-      <a :href="username" class="username">
-        {{ username }}
-      </a>
+      <div class="postHeader">
+        <a :href="username" class="username">
+          {{ username }}
+        </a>
+        <p class="date">{{ date }}</p>
+      </div>
       <div class="content">
         {{ content }}
-        <p class="date">{{ date }}</p>
       </div>
     </div>
   </div>
@@ -51,6 +53,15 @@ export default {
   padding: 10px;
   margin-top: 10px;
   width: 100%;
+}
+
+.homeBody .postHeader {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  list-style-type: none;
+  background-color: transparent;
 }
 
 .homeBody .indvPost .username {

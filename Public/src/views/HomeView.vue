@@ -23,7 +23,6 @@
 </template>
 
 <script>
-console.log('HomeView.vue')
 import axios from 'axios'
 import PostCard from '@/components/PostCard.vue'
 
