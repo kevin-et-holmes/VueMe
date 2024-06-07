@@ -16,4 +16,13 @@ import { RouterLink } from 'vue-router'
   </body>
 </template>
 
-<style scoped></style>
+<style scoped>
+@import 'src/assets/main.css';
+
+body {
+  margin: 10px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+</style>
