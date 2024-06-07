@@ -10,7 +10,7 @@
       </form>
       <div class="homePosts" v-if="posts.length > 0">
         <PostCard
-          v-for="post in posts"
+          v-for="post in sortedPosts"
           :key="post.id"
           :id="post.id"
           :username="post.username"
@@ -25,6 +25,7 @@
 <script>
 import axios from 'axios'
 import PostCard from '@/components/PostCard.vue'
+import _ from 'lodash'
 
 const url = 'http://localhost:3000'
 
@@ -65,6 +66,12 @@ export default {
         .catch((error) => {
           console.error(error)
         })
+    }
+  },
+
+  computed: {
+    sortedPosts: function () {
+      return _.orderBy(this.posts, 'date', 'desc')
     }
   }
 }
