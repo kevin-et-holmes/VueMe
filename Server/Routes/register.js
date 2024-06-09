@@ -7,7 +7,6 @@ const fs = require("fs");
 router.post("/", async (req, res) => {
   const { fullName, username, email, password } = req.body;
   const hashedPassword = await bcrypt.hash(password, saltRounds);
-  res.send(hashedPassword);
   fs.readFile("./data/PROFILES.json", "utf8", (err, data) => {
     const id = JSON.parse(data).length + 1;
     if (err) {
@@ -28,6 +27,7 @@ router.post("/", async (req, res) => {
         return;
       }
       console.log("Profile has been added");
+      res.status(201).send({ username: username, id: id });
     });
   });
 });

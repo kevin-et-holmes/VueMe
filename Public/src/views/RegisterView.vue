@@ -40,7 +40,10 @@ export default {
           password: this.password
         })
         .then((response) => {
-          console.log(response.data)
+          const { username, id } = response.data
+          if (response.status === 201) {
+            this.$router.push(`/${username}`)
+          }
         })
     }
   }

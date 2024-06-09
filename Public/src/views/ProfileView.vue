@@ -40,7 +40,6 @@ export default {
         .then((response) => {
           // console.log(response.data)
           this.user = response.data
-          console.log(this.user)
         })
         .catch((error) => {
           console.error(error)

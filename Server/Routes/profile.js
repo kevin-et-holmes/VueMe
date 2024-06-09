@@ -3,15 +3,19 @@ const router = express.Router();
 const fs = require("fs");
 
 const mockProfile = require("../data/MOCK_DATA_PROFILES.json");
+const profile = require("../data/PROFILES.json");
 
 // Define your route handlers here
 router.get("/:id", async (req, res) => {
   const username = req.params.id;
-  const user = mockProfile.find((user) => user.username === username);
+  const mockUser = mockProfile.find((user) => user.username === username);
+  const newUser = profile.find((user) => user.username === username);
   // console.log("DB file: ", user);
   // console.log("URL Parameter: ", username);
-  if (user) {
-    return res.status(200).send(user);
+  if (mockUser) {
+    return res.status(200).send(mockUser);
+  } else if (newUser) {
+    return res.status(200).send(newUser);
   } else {
     return res.status(404).send("User not found");
   }

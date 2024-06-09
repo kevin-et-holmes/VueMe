@@ -1,16 +1,1 @@
-[
-  {
-    "id": 1,
-    "fullName": "Kevin Holmes",
-    "username": "kholmes",
-    "email": "kolmes1@gmail.com",
-    "password": "$2b$10$b7.iQXn8r/45NyfIsJD1Xu.bIZyXpSXLUB1C3vNcQa.wXimxd6xgW"
-  },
-  {
-    "id": 2,
-    "fullName": "test name",
-    "username": "kevinh@harbordinsurance.com",
-    "email": "kolmes1@gmail.com",
-    "password": "$2b$10$h1TwqjDN9JZRCZvIcVs9jeBB3AdlJPdab8RM8owNEOLBEKNd7s30C"
-  }
-]
+[{"id":1,"fullName":"Kevin Holmes","username":"kholmes","email":"kolmes1@gmail.com","password":"$2b$10$b7.iQXn8r/45NyfIsJD1Xu.bIZyXpSXLUB1C3vNcQa.wXimxd6xgW"}]
