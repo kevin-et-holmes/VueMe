@@ -5,6 +5,10 @@
   margin: 0 auto;
   padding: 2rem;
   font-weight: normal;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 a,
@@ -28,8 +32,8 @@ a,
   }
 
   #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    flex-direction: row;
     padding: 0 2rem;
   }
 }

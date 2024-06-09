@@ -6,8 +6,14 @@ import { RouterLink } from 'vue-router'
   <body>
     <header>
       <nav>
-        <RouterLink to="/">Home</RouterLink> |
-        <RouterLink to="/profile">Profile</RouterLink>
+        <div class="navLeft">
+          <RouterLink to="/">Home</RouterLink> |
+          <RouterLink to="/profile">Profile</RouterLink>
+        </div>
+        <div class="navRight">
+          <RouterLink to="/login">Login</RouterLink> |
+          <RouterLink to="/register">Register</RouterLink>
+        </div>
       </nav>
     </header>
     <main>
@@ -24,5 +30,26 @@ body {
   padding: 0;
   display: flex;
   flex-direction: column;
+  max-width: 60%;
+}
+
+header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  padding: 10px;
+}
+
+nav {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  padding: 10px;
 }
 </style>
