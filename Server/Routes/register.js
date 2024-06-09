@@ -3,26 +3,20 @@ const router = express.Router();
 const bcrypt = require("bcrypt");
 const saltRounds = 10;
 const fs = require("fs");
-const profiles = require("../data/PROFILES.json");
-
-const user = {
-  fullName: "",
-  username: "",
-  email: "",
-  password: "",
-};
 
 router.post("/", async (req, res) => {
   const { fullName, username, email, password } = req.body;
   const hashedPassword = await bcrypt.hash(password, saltRounds);
   res.send(hashedPassword);
   fs.readFile("./data/PROFILES.json", "utf8", (err, data) => {
+    const id = JSON.parse(data).length + 1;
     if (err) {
       console.error(err);
       return;
     }
     const profiles = JSON.parse(data);
     profiles.push({
+      id,
       fullName,
       username,
       email,
