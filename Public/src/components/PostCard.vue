@@ -27,7 +27,10 @@ export default {
   <div class="postBody">
     <div class="indvPost">
       <div class="postHeader">
-        <RouterLink :to="username" class="username">
+        <RouterLink v-if="username === 'Anonymous'" :to="'/'" class="username">
+          {{ username }}
+        </RouterLink>
+        <RouterLink v-else :to="username" class="username">
           {{ username }}
         </RouterLink>
         <p class="date">{{ date }}</p>
