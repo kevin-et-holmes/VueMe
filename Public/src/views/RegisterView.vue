@@ -2,6 +2,8 @@
   <div class="register-view">
     <h1>Register</h1>
     <form @submit.prevent="register">
+      <label for="fullName">Full Name:</label>
+      <input type="text" id="fullName" v-model="fullName" required />
       <label for="username">Username:</label>
       <input type="text" id="username" v-model="username" required />
 
@@ -17,6 +19,8 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
   data() {
     return {
@@ -30,6 +34,11 @@ export default {
       console.log('Registering user:', this.username)
       console.log('Email:', this.email)
       console.log('Password:', this.password)
+      axios.post('http://localhost:3000/register', {
+        username: this.username,
+        email: this.email,
+        password: this.password
+      })
     }
   }
 }
