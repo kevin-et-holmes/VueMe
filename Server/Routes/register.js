@@ -1,14 +1,21 @@
 const express = require("express");
 const router = express.Router();
+const bcrypt = require("bcrypt");
+const saltRounds = 10;
+
+// const profile = require("../data/PROFILES.json");
+
+const user = {
+  fullName: "",
+  username: "",
+  email: "",
+  password: "",
+};
 
 router.post("/", async (req, res) => {
-  console.log("Register route :", req.body);
-  //   const username = req.body.username;
-  //   const email = req.body.email;
-  //   const password = req.body.password;
-  //   console.log("Username: ", username);
-  //   console.log("Email: ", email);
-  //   console.log("Password: ", password);
+  const { fullName, username, email, password } = req.body;
+  const hashedPassword = await bcrypt.hash(password, saltRounds);
+  res.send(hashedPassword);
 });
 
 module.exports = router;

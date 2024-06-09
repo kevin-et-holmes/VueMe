@@ -24,6 +24,7 @@ import axios from 'axios'
 export default {
   data() {
     return {
+      fullName: '',
       username: '',
       email: '',
       password: ''
@@ -31,14 +32,16 @@ export default {
   },
   methods: {
     register() {
-      console.log('Registering user:', this.username)
-      console.log('Email:', this.email)
-      console.log('Password:', this.password)
-      axios.post('http://localhost:3000/register', {
-        username: this.username,
-        email: this.email,
-        password: this.password
-      })
+      axios
+        .post('http://localhost:3000/register', {
+          fullName: this.fullName,
+          username: this.username,
+          email: this.email,
+          password: this.password
+        })
+        .then((response) => {
+          console.log(response.data)
+        })
     }
   }
 }
