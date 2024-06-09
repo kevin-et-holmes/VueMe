@@ -2,6 +2,23 @@
 import { RouterLink } from 'vue-router'
 </script>
 
+<script>
+import axios from 'axios'
+
+export default {
+  beforeMount() {
+    this.refreshProfiles()
+  },
+  methods: {
+    refreshProfiles() {
+      axios.post('http://localhost:3000/profile/refresh').then((response) => {
+        console.log(response.data)
+      })
+    }
+  }
+}
+</script>
+
 <template>
   <body>
     <header>
