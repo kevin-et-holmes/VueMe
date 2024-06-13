@@ -15,10 +15,12 @@ const db = require("./data/MOCK_DATA_POSTS.json");
 const homeRoute = require("./Routes/home");
 const profileRoute = require("./Routes/profile");
 const registerRoute = require("./Routes/register");
+const loginRoute = require("./Routes/login");
 
 app.use("/posts", homeRoute);
 app.use("/profile", profileRoute);
 app.use("/register", registerRoute);
+app.use("/login", loginRoute);
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);

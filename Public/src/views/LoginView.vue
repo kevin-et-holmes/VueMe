@@ -1,19 +1,16 @@
 <template>
-  <div class="register-view">
-    <h1>Register</h1>
-    <form @submit.prevent="register">
-      <label for="fullName">Full Name:</label>
-      <input type="text" id="fullName" v-model="fullName" required />
-      <label for="username">Username:</label>
-      <input type="text" id="username" v-model="username" required />
-
-      <label for="email">Email:</label>
-      <input type="email" id="email" v-model="email" required />
-
-      <label for="password">Password:</label>
-      <input type="password" id="password" v-model="password" required />
-
-      <button type="submit">Register</button>
+  <div class="login-container">
+    <h1>Login</h1>
+    <form @submit.prevent="login">
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" v-model="username" required />
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" v-model="password" required />
+      </div>
+      <button type="submit">Login</button>
     </form>
   </div>
 </template>
@@ -24,26 +21,23 @@ import axios from 'axios'
 export default {
   data() {
     return {
-      fullName: '',
       username: '',
-      email: '',
       password: ''
     }
   },
   methods: {
-    register() {
+    login() {
       axios
-        .post('http://localhost:3000/register', {
-          fullName: this.fullName,
+        .post('http://localhost:3000/login', {
           username: this.username,
-          email: this.email,
           password: this.password
         })
         .then((response) => {
           const { username, id } = response.data
+          console.log(response.data)
           sessionStorage.setItem('id', id)
           sessionStorage.setItem('username', username)
-          if (response.status === 201) {
+          if (response.status === 200) {
             this.$router.push(`/${username}`)
           }
         })
@@ -53,7 +47,7 @@ export default {
 </script>
 
 <style scoped>
-.register-view {
+.login-container {
   max-width: 400px;
   margin: 0 auto;
   padding: 20px;
@@ -61,20 +55,24 @@ export default {
   border-radius: 4px;
 }
 
-label {
-  display: block;
-  margin-bottom: 10px;
+.form-group {
+  margin-bottom: 20px;
 }
 
-input {
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input[type='text'],
+input[type='password'] {
   width: 100%;
   padding: 10px;
-  margin-bottom: 20px;
   border: 1px solid #ccc;
   border-radius: 4px;
 }
 
-button {
+button[type='submit'] {
   padding: 10px 20px;
   background-color: #007bff;
   color: #fff;

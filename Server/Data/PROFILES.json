@@ -1,1 +1,23 @@
-[{"id":1,"fullName":"Kevin Holmes","username":"kholmes","email":"kolmes1@gmail.com","password":"$2b$10$b7.iQXn8r/45NyfIsJD1Xu.bIZyXpSXLUB1C3vNcQa.wXimxd6xgW"}]
+[
+  {
+    "id": 1,
+    "fullName": "Kevin Holmes",
+    "username": "kholmes",
+    "email": "kolmes1@gmail.com",
+    "password": "$2b$10$b7.iQXn8r/45NyfIsJD1Xu.bIZyXpSXLUB1C3vNcQa.wXimxd6xgW"
+  },
+  {
+    "id": 2,
+    "fullName": "test name",
+    "username": "test",
+    "email": "kolmes1@gmail.com",
+    "password": "$2b$10$uVDFpeCvA571LCJHUZhEwOPm0JNv1tcm8KiCCfDuX8Q9r6DcHd7Se"
+  },
+  {
+    "id": 3,
+    "fullName": "123",
+    "username": "123",
+    "email": "123@123.com",
+    "password": "$2b$10$IoCZv2KysQDsuB76Twzi6OMfE1J/RWxndVNald7Qfj1loF/DdIELS"
+  }
+]

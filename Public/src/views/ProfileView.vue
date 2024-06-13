@@ -38,7 +38,7 @@ export default {
       axios
         .get(`${url}${urlUsername}`)
         .then((response) => {
-          // console.log(response.data)
+          // console.log('response: ', response.data)
           this.user = response.data
         })
         .catch((error) => {
