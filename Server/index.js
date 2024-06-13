@@ -12,12 +12,12 @@ app.use(bodyParser.json());
 const db = require("./data/MOCK_DATA_POSTS.json");
 // Define your routes here
 
-const homeRoute = require("./Routes/home");
+const postRoute = require("./Routes/posts");
 const profileRoute = require("./Routes/profile");
 const registerRoute = require("./Routes/register");
 const loginRoute = require("./Routes/login");
 
-app.use("/posts", homeRoute);
+app.use("/posts", postRoute);
 app.use("/profile", profileRoute);
 app.use("/register", registerRoute);
 app.use("/login", loginRoute);
