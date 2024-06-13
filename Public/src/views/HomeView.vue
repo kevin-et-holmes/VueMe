@@ -50,6 +50,7 @@ export default {
       if (this.newPost.trim() !== '') {
         this.posts.push({
           id: this.posts.length + 1,
+          username: sessionStorage.getItem('username'),
           content: this.newPost,
           date: new Date().toISOString()
         })
