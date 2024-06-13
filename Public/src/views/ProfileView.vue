@@ -4,7 +4,7 @@
       <ProfileCard :fullName="user.fullName" :username="user.username" :email="user.email" />
     </div>
   </header>
-  <!-- <div class="homePosts" v-if="posts.length > 0">
+  <div class="homePosts" v-if="posts.length > 0">
     <PostCard
       v-for="post in sortedPosts"
       :key="post.id"
@@ -13,12 +13,14 @@
       :content="post.content"
       :date="post.date"
     />
-  </div> -->
+  </div>
 </template>
 
 <script>
 import ProfileCard from '@/components/ProfileCard.vue'
+import PostCard from '@/components/PostCard.vue'
 import axios from 'axios'
+import _ from 'lodash'
 
 const url = 'http://localhost:3000/'
 
@@ -30,7 +32,8 @@ export default {
 
   name: 'ProfileView',
   components: {
-    ProfileCard
+    ProfileCard,
+    PostCard
   },
 
   data() {
@@ -39,7 +42,8 @@ export default {
         fullName: '',
         username: '',
         email: ''
-      }
+      },
+      posts: []
     }
   },
 
@@ -65,6 +69,11 @@ export default {
         .catch((error) => {
           console.error(error)
         })
+    }
+  },
+  computed: {
+    sortedPosts: function () {
+      return _.orderBy(this.posts, 'date', 'desc')
     }
   }
 }
