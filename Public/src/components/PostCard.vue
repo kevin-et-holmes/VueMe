@@ -43,7 +43,7 @@ export default {
 </template>
 
 <style scoped>
-.homeBody .postBody {
+.postBody {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -51,7 +51,7 @@ export default {
   box-sizing: border-box;
   width: 80%;
 }
-.homeBody .indvPost {
+.indvPost {
   border: 2px solid rgb(0, 189, 126);
   border-radius: 10px;
   padding: 10px;
@@ -59,7 +59,7 @@ export default {
   width: 100%;
 }
 
-.homeBody .postHeader {
+.postHeader {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -68,7 +68,7 @@ export default {
   background-color: transparent;
 }
 
-.homeBody .indvPost .username {
+.indvPost .username {
   display: flex;
   justify-content: space-between;
   list-style-type: none;
@@ -79,7 +79,7 @@ export default {
   padding: 0;
 }
 
-.homeBody .indvPost .content {
+.indvPost .content {
   display: flex;
   justify-content: space-between;
   list-style-type: none;
@@ -87,7 +87,7 @@ export default {
   color: white;
 }
 
-.homeBody .date {
+.date {
   color: rgba(255, 255, 255, 0.3);
   font-size: 0.8em;
   padding-left: 5px;

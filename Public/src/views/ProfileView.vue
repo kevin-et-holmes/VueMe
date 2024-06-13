@@ -4,7 +4,7 @@
       <ProfileCard :fullName="user.fullName" :username="user.username" :email="user.email" />
     </div>
   </header>
-  <div class="homePosts" v-if="posts.length > 0">
+  <div class="profilePosts" v-if="posts.length > 0">
     <PostCard
       v-for="post in sortedPosts"
       :key="post.id"
@@ -78,3 +78,13 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.profilePosts {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+</style>
