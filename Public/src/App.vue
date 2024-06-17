@@ -4,17 +4,22 @@ import { RouterLink } from 'vue-router'
 
 <script>
 import axios from 'axios'
-const id = sessionStorage.getItem('id')
-const username = sessionStorage.getItem('username')
+const id = localStorage.getItem('id')
+const username = localStorage.getItem('username')
 export default {
   data() {
     return {
-      sessionKey: 0
+      isLoggedIn: false
     }
   },
   // beforeMount() {
   //   this.refreshProfiles()
   // },
+  mounted() {
+    if (id) {
+      this.isLoggedIn = true
+    }
+  },
   methods: {
     refreshProfiles() {
       axios.post('http://localhost:3000/profile/refresh').then((response) => {
@@ -22,8 +27,8 @@ export default {
       })
     },
     logout() {
-      this.sessionKey -= 1
-      sessionStorage.clear()
+      localStorage.clear()
+      this.isLoggedIn = false
     }
   }
 }
@@ -34,9 +39,9 @@ export default {
     <header>
       <nav>
         <div class="navLeft"><RouterLink to="/">Home</RouterLink></div>
-        <div v-if="id" class="navRight" :key="sessionKey">
+        <div v-if="isLoggedIn" class="navRight">
           <RouterLink :to="username">Profile</RouterLink> |
-          <RouterLink to="/" @click.prevent="logout">Logout</RouterLink>
+          <RouterLink to="/" @click="logout">Logout</RouterLink>
         </div>
         <div v-else class="navRight">
           <RouterLink to="/register">Register</RouterLink> |

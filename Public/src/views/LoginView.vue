@@ -35,8 +35,8 @@ export default {
         .then((response) => {
           const { username, id } = response.data
           console.log(response.data)
-          sessionStorage.setItem('id', id)
-          sessionStorage.setItem('username', username)
+          localStorage.setItem('id', id)
+          localStorage.setItem('username', username)
           if (response.status === 200) {
             this.$router.push(`/${username}`)
           }
